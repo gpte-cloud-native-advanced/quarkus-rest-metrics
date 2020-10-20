@@ -1,6 +1,7 @@
 package com.redhat.emergency.response.quarkus.rest.metrics;
 
 import io.quarkus.deployment.Capabilities;
+import io.quarkus.deployment.Capability;
 import io.quarkus.deployment.annotations.BuildProducer;
 import io.quarkus.deployment.annotations.BuildStep;
 import io.quarkus.deployment.builditem.FeatureBuildItem;
@@ -15,8 +16,8 @@ public class RestMetricsProcessor {
 
     @BuildStep
     void enableMetrics(RestMetricsConfig buildConfig, BuildProducer<ResteasyJaxrsProviderBuildItem> jaxRsProviders, Capabilities capabilities) {
-        if (buildConfig.metricsEnabled && capabilities.isCapabilityPresent(Capabilities.METRICS)) {
-            if (capabilities.isCapabilityPresent(Capabilities.SERVLET)) {
+        if (buildConfig.metricsEnabled && capabilities.isCapabilityPresent(Capability.METRICS.getName())) {
+            if (capabilities.isCapabilityPresent(Capability.SERVLET.getName())) {
                 // if running with servlet, do nothing
                 log.warn("Running with servlet, rest metrics are not enabled");
             } else {

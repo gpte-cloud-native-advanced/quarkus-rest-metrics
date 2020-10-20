@@ -18,6 +18,10 @@
       <artifactId>quarkus-core-deployment</artifactId>
     </dependency>
     <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy-deployment</artifactId>
+    </dependency>
+    <dependency>
       <groupId>com.redhat.emergency.response</groupId>
       <artifactId>quarkus-rest-metrics</artifactId>
       <version>${project.version}</version>
